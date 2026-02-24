@@ -1,0 +1,337 @@
+/* =========================================
+   Custom styles — supplements Tailwind CDN
+   ========================================= */
+
+/* ---- Font ---- */
+body {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ---- Smooth scroll + fixed nav offset ---- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+/* ---- Hero gradient background ---- */
+.hero-bg {
+  background: linear-gradient(135deg, #eef2ff 0%, #f0f9ff 30%, #ffffff 65%);
+}
+
+/* ---- Frosted glass nav (JS adds .scrolled when scrollY > 72px) ---- */
+#site-header.scrolled {
+  background-color: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* ---- Active nav link (JS via IntersectionObserver) ---- */
+.nav-link.active {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* ---- Section two-column layout ---- */
+/* Heading on left (~220px), content takes remaining space */
+.section-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-layout {
+    grid-template-columns: 220px 1fr;
+    gap: 4rem;
+  }
+}
+
+/* ---- Section heading with underline decoration ---- */
+.section-label-col {
+  /* Sticky so it stays visible while scrolling through long content sections */
+  /* Remove sticky if you prefer static headings */
+}
+
+.section-heading {
+  font-size: 1.5rem;    /* text-2xl */
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.02em;
+  margin-bottom: 0;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+/* Colored underline — only as wide as the heading text */
+.section-heading::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #2563eb; /* accent blue */
+  border-radius: 9999px;
+}
+
+/* ---- Dark tech tags (black bg, white text) ---- */
+.dark-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #111827; /* gray-900 */
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  line-height: 1.6;
+}
+
+/* ---- Project card ---- */
+.project-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb; /* gray-200 */
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  border-color: #d1d5db;
+}
+
+/* ---- Project external link button ---- */
+.project-link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background-color: #111827;
+  color: #ffffff;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+}
+
+.project-link-btn:hover {
+  background-color: #2563eb;
+}
+
+/* ---- Experience / Education timeline ---- */
+.timeline {
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+/* Vertical connecting line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px; /* center of the dot (dot is 12px wide, 5px + 1px = half) */
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background-color: #e5e7eb; /* gray-200 */
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+
+.timeline-item--last {
+  padding-bottom: 0;
+}
+
+/* Blue dot on the timeline */
+.timeline-dot {
+  position: absolute;
+  left: -1.75rem;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background-color: #2563eb;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 1px #e5e7eb;
+}
+
+/* ---- Current page nav link ---- */
+.nav-current {
+  color: #111827;   /* gray-900 */
+  font-weight: 600;
+  cursor: default;
+}
+
+/* ---- Filter chips (projects.html) ---- */
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #6b7280;         /* gray-500 */
+  background-color: #f9fafb; /* gray-50 */
+  border: 1px solid #e5e7eb; /* gray-200 */
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.filter-chip:hover {
+  border-color: #9ca3af; /* gray-400 */
+  color: #111827;
+}
+
+.filter-chip--active {
+  color: #ffffff;
+  background-color: #111827; /* gray-900 */
+  border-color: #111827;
+}
+
+.filter-chip--active:hover {
+  background-color: #374151;
+  border-color: #374151;
+  color: #ffffff;
+}
+
+/* ---- Clickable project cards (projects.html) ---- */
+.project-card-clickable {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.project-card-clickable:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  border-color: #d1d5db;
+}
+
+/* Remove default link styling inside clickable cards */
+.project-card-clickable a.block {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---- Project detail page content typography ---- */
+.project-content h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.project-content h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-content p {
+  font-size: 0.8125rem;
+  color: #4b5563;         /* gray-600 */
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.project-content ul,
+.project-content ol {
+  font-size: 0.8125rem;
+  color: #4b5563;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+  padding-left: 1.25rem;
+}
+
+.project-content ul {
+  list-style-type: disc;
+}
+
+.project-content ol {
+  list-style-type: decimal;
+}
+
+.project-content li {
+  margin-bottom: 0.35rem;
+}
+
+.project-content pre {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  line-height: 1.65;
+  color: #374151;
+}
+
+.project-content code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  background-color: #f3f4f6;
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  color: #374151;
+}
+
+.project-content pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.project-content figure {
+  margin: 1.75rem 0;
+}
+
+.project-content figure img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.project-content figcaption {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.project-content hr {
+  border: none;
+  border-top: 1px solid #f3f4f6;
+  margin: 2rem 0;
+}
+
+.project-content a {
+  color: #2563eb;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.project-content a:hover {
+  color: #1d4ed8;
+}
+
+/* ---- Focus styles (accessibility) ---- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  border-radius: 4px;
+}

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shawn CLQ — Software Engineer Portfolio" />
+  <title>Shawn CLQ</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#2563eb'
+          },
+          fontFamily: {
+            sans: ['"IBM Plex Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+
+  <!-- ========== NAVIGATION ========== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <nav class="max-w-6xl mx-auto px-8 py-4 relative flex items-center justify-center">
+      <!-- Desktop nav - centered -->
+      <ul class="hidden md:flex items-center gap-10 text-xs font-medium text-gray-500">
+        <li><a href="#about"        class="nav-link hover:text-gray-900 transition-colors">About</a></li>
+        <li><a href="#experience"   class="nav-link hover:text-gray-900 transition-colors">Experience</a></li>
+        <li><a href="#education"    class="nav-link hover:text-gray-900 transition-colors">Education</a></li>
+        <li><a href="projects.html" class="nav-page-link hover:text-gray-900 transition-colors">Projects</a></li>
+      </ul>
+
+      <!-- Mobile hamburger - absolutely positioned right -->
+      <button id="mobile-menu-toggle" class="md:hidden absolute right-8 p-2 rounded hover:bg-gray-100 transition-colors" aria-label="Toggle menu" aria-expanded="false">
+        <svg id="icon-open" class="w-5 h-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="icon-close" class="w-5 h-5 text-gray-700 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-8 py-4">
+      <ul class="flex flex-col gap-4 text-xs font-medium text-gray-500">
+        <li><a href="#about"        class="mobile-nav-link block hover:text-accent transition-colors">About</a></li>
+        <li><a href="#experience"   class="mobile-nav-link block hover:text-accent transition-colors">Experience</a></li>
+        <li><a href="#education"    class="mobile-nav-link block hover:text-accent transition-colors">Education</a></li>
+        <li><a href="projects.html" class="block hover:text-accent transition-colors">Projects</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section id="hero" class="hero-bg min-h-screen flex flex-col justify-center px-8 pt-20">
+      <div class="max-w-6xl mx-auto w-full">
+        <img src="images/logo.png" alt="Shawn CLQ" class="w-16 h-16 rounded-full object-cover mb-6 border border-gray-200" />
+        <p class="text-base font-medium text-gray-800 mb-4">Hello! 👋</p>
+        <h1 class="text-5xl md:text-7xl font-bold text-gray-900 leading-tight mb-4">
+          I'm <span class="text-accent">Shawn CLQ</span>
+        </h1>
+        <p class="text-base text-gray-500 mb-20">Software Engineer</p>
+
+        <!-- Social links -->
+        <div class="flex items-center gap-5">
+          <a href="mailto:your@email.com" aria-label="Email" class="text-gray-500 hover:text-accent transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+            </svg>
+          </a>
+          <a href="https://linkedin.com/in/shawnclq" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-500 hover:text-accent transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a href="https://x.com/shawnclq" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter" class="text-gray-500 hover:text-accent transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <a href="https://github.com/shawnclq" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-gray-500 hover:text-accent transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.298 24 12c0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section id="about" class="py-24">
+      <div class="max-w-6xl mx-auto px-8">
+        <div class="section-layout">
+          <!-- Left: heading -->
+          <div class="section-label-col">
+            <h2 class="section-heading">About Me</h2>
+          </div>
+          <!-- Right: content -->
+          <div>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-4 mb-6">
+              <p>
+                I'm a software engineer with a passion for building products that are both technically solid and genuinely useful.
+                My work spans backend systems, data engineering, and building tools that make complex things simpler.
+              </p>
+              <p>
+                When I'm not coding, I'm exploring new technologies, working on side projects, and documenting what I've learned.
+                I believe good software is built incrementally — one well-considered decision at a time.
+              </p>
+            </div>
+
+            <!-- Section quick-links -->
+            <div class="flex flex-wrap gap-4 mb-6 text-xs text-gray-400">
+              <a href="#about"        class="hover:text-accent transition-colors">About</a>
+              <a href="projects.html" class="hover:text-accent transition-colors">Projects</a>
+              <a href="#experience"   class="hover:text-accent transition-colors">Experience</a>
+              <a href="#education"    class="hover:text-accent transition-colors">Education</a>
+            </div>
+
+            <!-- Skills -->
+            <div class="flex flex-wrap gap-2">
+              <span class="dark-tag">Javascript</span>
+              <span class="dark-tag">Python</span>
+              <span class="dark-tag">SQL</span>
+              <span class="dark-tag">Docker</span>
+              <span class="dark-tag">Git</span>
+              <span class="dark-tag">Linux</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== EXPERIENCE ========== -->
+    <section id="experience" class="py-24 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-8">
+        <div class="section-layout">
+          <!-- Left: heading -->
+          <div class="section-label-col">
+            <h2 class="section-heading">Experience</h2>
+          </div>
+          <!-- Right: timeline -->
+          <div class="timeline">
+
+            <!-- ENTRY 01 -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-3">
+                <div>
+                  <h3 class="text-sm font-semibold text-gray-900">Job Title</h3>
+                  <a href="#" class="text-xs text-accent hover:underline">Company Name</a>
+                </div>
+                <span class="text-xs text-gray-400 whitespace-nowrap">Jan 2023 – Present</span>
+              </div>
+              <ul class="space-y-1.5 text-xs text-gray-600">
+                <li>• Key achievement or responsibility, quantified where possible.</li>
+                <li>• Another contribution or technical area you owned.</li>
+                <li>• Impact you delivered or problem you solved.</li>
+              </ul>
+            </div>
+
+            <!-- ENTRY 02 -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-3">
+                <div>
+                  <h3 class="text-sm font-semibold text-gray-900">Previous Role</h3>
+                  <a href="#" class="text-xs text-accent hover:underline">Previous Company</a>
+                </div>
+                <span class="text-xs text-gray-400 whitespace-nowrap">Jun 2021 – Dec 2022</span>
+              </div>
+              <ul class="space-y-1.5 text-xs text-gray-600">
+                <li>• Responsibility or accomplishment from this role.</li>
+                <li>• Another contribution during this period.</li>
+              </ul>
+            </div>
+
+            <!-- ENTRY 03 -->
+            <div class="timeline-item timeline-item--last">
+              <div class="timeline-dot"></div>
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-3">
+                <div>
+                  <h3 class="text-sm font-semibold text-gray-900">Earlier Role</h3>
+                  <a href="#" class="text-xs text-accent hover:underline">Earlier Company</a>
+                </div>
+                <span class="text-xs text-gray-400 whitespace-nowrap">Aug 2019 – May 2021</span>
+              </div>
+              <ul class="space-y-1.5 text-xs text-gray-600">
+                <li>• Responsibility at this role.</li>
+                <li>• Key accomplishment or project from this period.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== EDUCATION ========== -->
+    <section id="education" class="py-24">
+      <div class="max-w-6xl mx-auto px-8">
+        <div class="section-layout">
+          <!-- Left: heading -->
+          <div class="section-label-col">
+            <h2 class="section-heading">Education</h2>
+          </div>
+          <!-- Right: entries -->
+          <div class="space-y-10">
+
+            <!-- ENTRY 01 -->
+            <div>
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-2">
+                <div>
+                  <h3 class="text-sm font-semibold text-gray-900">Bachelor of Science in Computer Science</h3>
+                  <a href="#" class="text-xs text-accent hover:underline">University Name</a>
+                </div>
+                <span class="text-xs text-gray-400 whitespace-nowrap">2017 – 2021</span>
+              </div>
+              <ul class="space-y-1.5 text-xs text-gray-600 mt-3">
+                <li>• Relevant honours, GPA, or academic achievements.</li>
+                <li>• Key coursework, clubs, or extracurricular activities.</li>
+              </ul>
+            </div>
+
+            <!-- ENTRY 02 -->
+            <div>
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-2">
+                <div>
+                  <h3 class="text-sm font-semibold text-gray-900">Certificate or Additional Qualification</h3>
+                  <a href="#" class="text-xs text-accent hover:underline">Institution or Platform</a>
+                </div>
+                <span class="text-xs text-gray-400 whitespace-nowrap">2022</span>
+              </div>
+              <ul class="space-y-1.5 text-xs text-gray-600 mt-3">
+                <li>• What you completed or specialised in.</li>
+                <li>• Notable projects or skills gained.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      ====================================================
+      HOW TO ADD A NEW SECTION
+      ====================================================
+      1. Copy any <section> block above and give it a new id (e.g., id="publications")
+      2. Alternate bg: if the section above is bg-gray-50, use no bg class (white); vice versa
+      3. Inside .section-layout, add your heading in .section-label-col and content on the right
+      4. Add a desktop nav link inside <ul class="hidden md:flex ...">:
+            <li><a href="#publications" class="nav-link ...">Publications</a></li>
+      5. Add the same link inside <div id="mobile-menu">
+      No build step, no config changes.
+      ====================================================
+    -->
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="py-12 border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-8">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <!-- Left: name + socials -->
+        <div>
+          <p class="text-sm font-semibold text-gray-900 mb-1">Shawn CLQ</p>
+          <p class="text-xs text-gray-400 mb-4">Software Engineer</p>
+          <div class="flex items-center gap-4">
+            <a href="mailto:your@email.com" aria-label="Email" class="text-gray-400 hover:text-accent transition-colors">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/in/shawnclq" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-400 hover:text-accent transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://x.com/shawnclq" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter" class="text-gray-400 hover:text-accent transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="https://github.com/shawnclq" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-gray-400 hover:text-accent transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.298 24 12c0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: nav links + copyright -->
+        <div class="text-right">
+          <nav class="flex flex-wrap justify-end gap-6 text-xs text-gray-400 mb-4">
+            <a href="#about"        class="hover:text-accent transition-colors">About</a>
+            <a href="projects.html" class="hover:text-accent transition-colors">Projects</a>
+            <a href="#experience"   class="hover:text-accent transition-colors">Experience</a>
+            <a href="#education"    class="hover:text-accent transition-colors">Education</a>
+          </nav>
+          <p class="text-xs text-gray-400">&copy; 2026 Shawn CLQ. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
